@@ -10,6 +10,10 @@
             @endforeach
         </ul>
 
+        <div class="my-3">
+            {{ $posts->links() }}
+        </div>
+
     </div>
 @endsection
 
