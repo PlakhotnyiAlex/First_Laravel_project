@@ -11,7 +11,7 @@
         </ul>
 
         <div class="my-3">
-            {{ $posts->links() }}
+            {{ $posts->withQueryString()->links() }}
         </div>
 
     </div>
