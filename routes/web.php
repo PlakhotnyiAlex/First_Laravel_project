@@ -26,15 +26,15 @@ Route::group(['namespace' => 'Post'], function (){
     Route::delete('/post/{post}', 'DestroyController')->name('post.delete');
 });
 
-Route::group(['namespace' => 'Admin', 'prefix' => 'admin'], function (){
+Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => 'admin'], function (){
     Route::group(['namespace' => 'Post'], function (){
-        Route::get('/post', 'IndexController')->middleware('auth')->name('admin.post.index');
-        Route::get('/post/create', 'CreateController')->middleware('auth')->name('admin.post.create');
-        Route::post('/post', 'StoreController')->middleware('auth')->name('admin.post.store');
-        Route::get('/post/{post}', 'ShowController')->middleware('auth')->name('admin.post.show');
-        Route::get('/post/{post}/edit', 'EditController')->middleware('auth')->name('admin.post.edit');
-        Route::patch('/post/{post}', 'UpdateController')->middleware('auth')->name('admin.post.update');
-        Route::delete('/post/{post}', 'DestroyController')->middleware('auth')->name('admin.post.delete');
+        Route::get('/post', 'IndexController')->name('admin.post.index');
+        Route::get('/post/create', 'CreateController')->name('admin.post.create');
+        Route::post('/post', 'StoreController')->name('admin.post.store');
+        Route::get('/post/{post}', 'ShowController')->name('admin.post.show');
+        Route::get('/post/{post}/edit', 'EditController')->name('admin.post.edit');
+        Route::patch('/post/{post}', 'UpdateController')->name('admin.post.update');
+        Route::delete('/post/{post}', 'DestroyController')->name('admin.post.delete');
     });
 });
 

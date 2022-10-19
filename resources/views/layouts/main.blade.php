@@ -24,8 +24,13 @@
                             <a class="nav-link" href="{{route('about.index')}}">About</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('contacts.index')}}">Disabled</a>
+                            <a class="nav-link" href="{{route('contacts.index')}}">Contacts</a>
                         </li>
+                        @can('view', auth()->user())
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{route('admin.post.index')}}">Admin Panel</a>
+                        </li>
+                        @endcan
                     </ul>
                 </div>
             </nav>
